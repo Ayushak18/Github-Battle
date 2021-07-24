@@ -83,7 +83,7 @@
 /* Loader CSS End */
 
 body {
-  margin: 50px;
+  margin: 50px 0;
 }
 
 li {
@@ -108,4 +108,29 @@ h3 {
 
 .user {
   flex-wrap: wrap;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.links a {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 22px;
+  background: rgb(74, 198, 255);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-links {
+  background: rgb(255, 207, 188);
+  margin: 50px 0;
+  padding: 10px 20px;
+}
+
+.nav-links a{
+    color: rgb(0, 0, 0);
 }

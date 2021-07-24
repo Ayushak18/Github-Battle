@@ -8,6 +8,7 @@ class App extends React.Component {
     this.state = {
       data: null,
       langauge: 'All',
+      mode: 'Popular',
     };
   }
 
@@ -35,11 +36,21 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => this.setState({ data: data.items }));
   }
-  
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.langauge !== this.state.langauge) {
+      fetch(
+        `https://api.github.com/search/repositories?q=stars:%3E1+language:${this.state.langauge}&sort=stars&order=desc&type=Repositories`
+      )
+        .then((response) => response.json())
+        .then((data) => this.setState({ data: data.items }));
+    }
+  }
 
   handleLanguage = (event) => {
     event.preventDefault();
     return this.setState({
+      data: null,
       langauge: event.target.innerText,
     });
   };
@@ -47,37 +58,39 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h3>Popular</h3>
-        <h3>Battle</h3>
+        <div className="links">
+          <a href="#a">Popular</a>
+          <a href="#a">Battle</a>
+        </div>
         <div>
-          <ul className="flex">
+          <ul className="flex nav-links">
             <li>
-              <a onClick={this.handleLanguage} href="">
+              <a onClick={this.handleLanguage} href="#a">
                 All
               </a>
             </li>
             <li>
-              <a onClick={this.handleLanguage} href="">
+              <a onClick={this.handleLanguage} href="#a">
                 Javascript
               </a>
             </li>
             <li>
-              <a onClick={this.handleLanguage} href="">
+              <a onClick={this.handleLanguage} href="#a">
                 Ruby
               </a>
             </li>
             <li>
-              <a onClick={this.handleLanguage} href="">
+              <a onClick={this.handleLanguage} href="#a">
                 Java
               </a>
             </li>
             <li>
-              <a onClick={this.handleLanguage} href="">
+              <a onClick={this.handleLanguage} href="#a">
                 CSS
               </a>
             </li>
             <li>
-              <a onClick={this.handleLanguage} href="">
+              <a onClick={this.handleLanguage} href="#a">
                 Python
               </a>
             </li>
