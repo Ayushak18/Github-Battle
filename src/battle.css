@@ -1,0 +1,38 @@
+body {
+  text-align: center;
+}
+
+.icons {
+  margin: 50px 200px;
+}
+
+.players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-one,
+.player-two {
+  margin: 0 50px;
+}
+
+input {
+  margin: 0 10px;
+}
+
+img {
+  margin: 50px 0;
+}
+
+.battle-button,
+.reset-button {
+  padding: 10px 20px;
+  background: rgb(74, 198, 255);
+  border: none;
+  color: white;
+  font-size: 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
